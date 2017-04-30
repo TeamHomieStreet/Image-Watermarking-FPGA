@@ -33,13 +33,20 @@ module Insertion(
 
 wire [8:0] Adder1, Adder2, Adder;
 wire [7:0] shiftedAdder1 = Adder1[8:1];
-wire shiftedAdder2 = Adder2[8:1];
-wire multiplication2 = shiftedAdder2 * (1-a1); //changes
-wire multiplication1 = (WM_data == 2'b01)? (Data1*a1) : ((WM_data== 2'b10)? Data2*a2:0);
+wire [7:0] shiftedAdder2 = Adder2[8:1];
+wire [7:0] m1, m11, m2, m12;
+reg [7:0] temp;
+
+Amul mul2(.a(shiftedAdder2), .clk(clk), .p(m2));
+
+Amul mul1(.a(Data1), .clk(clk), .p(m11));
+Bmul mul3(.a(Data2), .p(m12));
+
+assign m1 = (WM_data == 2'b01)? m11 : m12;
 
 adder8 A1(.a(Data1), .b(Data2), .add(1), .s(Adder1));
 adder8 A2(.a(Data3), .b(shiftedAdder1), .add(1), .s(Adder2));
-adder8 A3(.a(multiplication1), .b(multiplication2), .add(1), .s(Adder));
+adder8 A3(.a(m1), .b(m2), .add(1), .s(Adder));
 
 assign WM_IM_Data = (WM_data== 2'b00)? Data1 : Adder ;
 endmodule
