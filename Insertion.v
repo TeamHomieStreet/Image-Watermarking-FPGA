@@ -18,18 +18,19 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Insertion(Data1,Data2,Data3,Data4,a1,a2,WM_data,start,clk,done,WM_IM_Data
-    );
-input [7:0]Data1;
-input [7:0]Data2;
-input [7:0]Data3;
-input [7:0]Data4;
-input [7:0]a1;
-input [7:0]a2;
-input clk,start;
-input [1:0]WM_data;
-output done;
-output [7:0]WM_IM_Data;
+module Insertion(
+	input [7:0]Data1,
+	input [7:0]Data2,
+	input [7:0]Data3,
+	input [7:0]Data4,
+	input [7:0]a1,
+	input [7:0]a2,
+	input clk,start,
+	input [1:0]WM_data,
+//	output done,
+	output [7:0]WM_IM_Data
+);
+
 wire Adder1= Data2+Data4;
 wire shiftedAdder1 = Adder1<<1;
 wire Adder2= Data3+shiftedAdder1;
