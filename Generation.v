@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: IIT Roorkee 
+// Engineers: Rohith Asrk, Nitin Sethi, Sri Vathsa, Shashwat Kumar
 // 
 // Create Date:    09:42:40 04/08/2017 
 // Design Name: 
 // Module Name:    Generation 
-// Project Name: 
+// Project Name: FPGA Implementation of Image watermarking 
 // Target Devices: 
 // Tool versions: 
 // Description: 
@@ -19,8 +19,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Generation(
-	input clk,
-	output [1:0] WM_Data
+    input clk,
+    output [1:0] WM_Data
 );
 
 parameter key = 8'b01101010;
