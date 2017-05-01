@@ -39,10 +39,10 @@ reg [7:0] temp;
 
 Amul mul2(.a(shiftedAdder2), .clk(clk), .p(m2));
 
-Amul mul1(.a(Data1), .clk(clk), .p(m11));
+Cmul mul1(.a(Data1), .p(m11));
 Bmul mul3(.a(Data2), .p(m12));
 
-assign m1 = (WM_data == 2'b01)? m11 : m12;
+assign m1 = (WM_data == 2'b01)? m11 : ((WM_data == 2'b10)? m12 : 0);
 
 adder8 A1(.a(Data1), .b(Data2), .add(1), .s(Adder1));
 adder8 A2(.a(Data3), .b(shiftedAdder1), .add(1), .s(Adder2));
