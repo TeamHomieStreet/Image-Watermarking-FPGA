@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    12:25:53 05/01/2017 
+// Create Date:    18:38:56 05/01/2017 
 // Design Name: 
-// Module Name:    main 
+// Module Name:    FF 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -19,18 +19,22 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-module main(
-	input clk,	
-	input [7:0] Data1,
-	input [7:0] Data2,
-	input [7:0] Data3,
-	input [7:0] Data4,
-	output [7:0] IM_Data_out
+module FF(
+	input clk,
+	input D,
+	output reg Q,
+	output wire Qbar
 );
 
-wire [1:0] WM_Data;
+parameter init = 0;
 
-Generation G( .clk(clk), .WM_Data(WM_Data));
-Insertion I( .clk(clk), .Data1(Data1), .Data2(Data2), .Data3(Data3), .Data4(Data4),
-				.WM_Data(WM_Data), .WM_IM_Data(IM_Data_out));
+initial
+Q = init;
+
+assign Qbar = ~Q;
+
+always@(posedge clk)
+begin
+Q = D;
+end
 endmodule

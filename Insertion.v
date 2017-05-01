@@ -30,8 +30,6 @@ module Insertion(
 );
 
 wire [8:0] Adder1, Adder2, Adder;
-
-
 wire [7:0] m1, m11, m2, m12;
 reg [7:0] temp;
 
@@ -42,7 +40,6 @@ adder8 A2(.a(Data3), .b(shiftedAdder1), .add(1), .s(Adder2));
 wire [7:0] shiftedAdder2 = Adder2[8:1];
 
 Amul mul2(.a(shiftedAdder2), .clk(clk), .p(m2));
-
 Cmul mul1(.a(Data1), .p(m11));
 Bmul mul3(.a(Data1), .p(m12));
 

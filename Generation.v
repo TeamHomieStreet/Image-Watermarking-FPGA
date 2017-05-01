@@ -18,36 +18,18 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-
-module FF(clk,D,Q,Qbar);
-input clk,D;
-output reg Q;
-output wire Qbar;
-
-parameter init = 0;
-
-initial
-Q = init;
-
-assign Qbar = ~Q;
-
-always@(posedge clk)
-begin
-Q = D;
-end
-endmodule
-
 module Generation(
 	input clk,
 	output [1:0] WM_Data
 );
 
+parameter key = 8'b01101010;
+
 wire [7:0] Q, Qbar;
 wire [7:0] D;
 
-assign WM_Data[1] =  Q[1]^Q[0];//: 1'b0;
+assign WM_Data[1] =  Q[1]^Q[0];
 assign WM_Data[0] = (WM_Data[1]==1)? 0 : Q[0];
-parameter key = 8'b01101010; //subject to change
 
 FF #(key[0]) FF0(clk,D[0],Q[0],Qbar[0]);
 FF #(key[1]) FF1(clk,D[1],Q[1],Qbar[1]);
