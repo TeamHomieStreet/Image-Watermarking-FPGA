@@ -38,14 +38,15 @@ end
 endmodule
 
 module Generation(
-	input clk,start,WM_select,
+	input clk,
 	output [1:0] WM_Data
 );
 
 wire [7:0] Q, Qbar;
 wire [7:0] D;
-assign WM_Data[0] = Q[0];
-assign WM_Data[1] = (WM_select) ? Q[1]^Q[0]: 1'b0;
+
+assign WM_Data[1] =  Q[1]^Q[0];//: 1'b0;
+assign WM_Data[0] = (WM_Data[1]==1)? 0 : Q[0];
 parameter key = 8'b01101010; //subject to change
 
 FF #(key[0]) FF0(clk,D[0],Q[0],Qbar[0]);

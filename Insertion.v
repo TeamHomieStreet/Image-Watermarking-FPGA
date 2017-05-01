@@ -21,14 +21,11 @@
 
 module Insertion(
 	input clk,
-	input start,
 	input [7:0]Data1,
 	input [7:0]Data2,
 	input [7:0]Data3,
 	input [7:0]Data4,
-	//input [7:0]a1,
-	//input [7:0]a2,
-	input [1:0]WM_data,
+	input [1:0]WM_Data,
 	output [7:0]WM_IM_Data
 );
 
@@ -49,9 +46,9 @@ Amul mul2(.a(shiftedAdder2), .clk(clk), .p(m2));
 Cmul mul1(.a(Data1), .p(m11));
 Bmul mul3(.a(Data1), .p(m12));
 
-assign m1 = (WM_data == 2'b01)? m11 : ((WM_data == 2'b10)? m12 : 0);
+assign m1 = (WM_Data == 2'b01)? m11 : ((WM_Data == 2'b10)? m12 : 0);
 
 adder8 A3(.a(m1), .b(m2), .add(1), .s(Adder));
 
-assign WM_IM_Data = (WM_data== 2'b00 | WM_data == 2'b11)? Data1 : Adder[7:0];
+assign WM_IM_Data = (WM_Data== 2'b00 | WM_Data == 2'b11)? Data1 : Adder[7:0];
 endmodule
