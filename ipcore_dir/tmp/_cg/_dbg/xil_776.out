@@ -1,0 +1,24 @@
+SET_PARAMETER portbtype Signed
+SET_PARAMETER clockenable false
+SET_PARAMETER multtype Constant_Coefficient_Multiplier
+SET_PARAMETER ccmimp Distributed_Memory
+SET_PARAMETER constvalue 1
+SET_PARAMETER roundpoint 0
+SET_PARAMETER multiplier_construction Use_LUTs
+SET_PARAMETER use_custom_output_width true
+SET_PARAMETER internaluser 0
+SET_PARAMETER pipestages 0
+SET_PARAMETER userounding false
+SET_PARAMETER outputwidthlow 2
+SET_PARAMETER sclrcepriority SCLR_Overrides_CE
+SET_PARAMETER zerodetect false
+SET_PARAMETER component_name Cmul
+SET_PARAMETER optgoal Speed
+SET_PARAMETER portawidth 8
+SET_PARAMETER outputwidthhigh 9
+SET_PARAMETER portatype Unsigned
+SET_PARAMETER portbwidth 18
+SET_PARAMETER syncclear false
+SET_ERROR_CODE 2
+SET_ERROR_MSG  CANCEL: Customization cancelled.
+SET_ERROR_TEXT Finished initializing IP model.	
