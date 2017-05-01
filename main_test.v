@@ -28,7 +28,7 @@ module main_test;
 	reg clk;
 
 	// Outputs
-	wire IM_Data_out;
+	wire [7:0] IM_Data_out;
 	
 	reg [7:0] Data1, Data2, Data3, Data4;
 
