@@ -5,5 +5,5 @@ This work has been done as a course project of ECN-252 at IIT Roorkee under [Dr.
 ## Contributors
   * [Rohith Asrk](https://github.com/rohithasrk)
   * [Nitin Sethi]()
-  * [Sri Vathsa V.]()
+  * [Sri Vathsa V.](https://github.com/saisrivathsa)
   * [Shashwat Kumar]()
